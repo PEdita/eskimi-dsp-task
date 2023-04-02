@@ -14,38 +14,26 @@ namespace Tests
         }
 
         [Test] 
-        public void UpdateContactPersonFullName()
+        public void UpdateContactMainInfo()
         {
             string expectedFullName = "Jurga Jurgaitytė";
+            string expectedEmail = "jurga@myemail.com";
+            string expectedPhone = "+37065656565";
 
             PersonalInfo.ClearContactPersonFullNameInputBox();
             PersonalInfo.EnterFullName(expectedFullName);
             string actualFullName = PersonalInfo.GetFullName();
 
-            Assert.AreEqual(expectedFullName, actualFullName);
-        }
-
-        [Test]
-        public void UpdateContactPersonEmail()
-        {
-            string expectedEmail = "jurga@myemail.com";
-
             PersonalInfo.ClearContactPersonEmailInputBox();
             PersonalInfo.EnterEmail(expectedEmail);
             string actualEmail = PersonalInfo.GetEmail();
-
-            Assert.AreEqual(expectedEmail, actualEmail);
-        }
-
-        [Test]
-        public void UpdateContactPersonPhone()
-        {
-            string expectedPhone = "+37065656565";
 
             PersonalInfo.ClearContactPersonPhoneInputBox();
             PersonalInfo.EnterPhone(expectedPhone);
             string actualPhone = PersonalInfo.GetPhone();
 
+            Assert.AreEqual(expectedFullName, actualFullName);
+            Assert.AreEqual(expectedEmail, actualEmail);
             Assert.AreEqual(expectedPhone, actualPhone);
         }
 
