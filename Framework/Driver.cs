@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using System;
 
 namespace Framework
 {
@@ -26,6 +27,11 @@ namespace Framework
         public static void OpenPage(string url)
         {
             driver.Url = url;
+        }
+
+        internal static void GoToUrl(string url)
+        {
+            driver.Navigate().GoToUrl(url);
         }
     }
 }
