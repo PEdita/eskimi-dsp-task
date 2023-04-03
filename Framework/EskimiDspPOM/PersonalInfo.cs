@@ -18,10 +18,10 @@ namespace Framework.EskimiDspPOM
             Common.ClearInputElement("//*[@name='contact_person_full_name']");
         }
 
-        public static void EnterFullName(string text)
+        public static void EnterFullName(string expectedFullName)
         {
             string locator = "//*[@name='contact_person_full_name']";
-            Common.SendKeysToElement(locator, text);
+            Common.SendKeysToElement(locator, expectedFullName);
         }
 
         public static string GetFullName()
@@ -34,10 +34,10 @@ namespace Framework.EskimiDspPOM
             Common.ClearInputElement("//*[@name='contact_person_email']");
         }
 
-        public static void EnterEmail(string text)
+        public static void EnterEmail(string expectedEmail)
         {
             string locator = "//*[@name='contact_person_email']";
-            Common.SendKeysToElement(locator, text);
+            Common.SendKeysToElement(locator, expectedEmail);
         }
 
         public static string GetEmail()
@@ -50,15 +50,40 @@ namespace Framework.EskimiDspPOM
             Common.ClearInputElement("//*[@name='contact_person_phone']");
         }
 
-        public static void EnterPhone(string text)
+        public static void EnterPhone(string expectedPhone)
         {
             string locator = "//*[@name='contact_person_phone']";
-            Common.SendKeysToElement(locator, text);
+            Common.SendKeysToElement(locator, expectedPhone);
         }
 
         public static string GetPhone()
         {
             return Common.GetAttributeValue("//*[@name='contact_person_phone']", "value");
+        }
+
+        public static void EnterWeakPassword(string weakPassword)
+        {
+            Common.SendKeysToElement("//*[@name='plain_password']", weakPassword);
+        }
+
+        public static string GetValue()
+        {
+            return Common.GetElementText("//*[contains(text(),'weak')]");
+        }
+
+        public static void ClearPassword()
+        {
+            Common.ClearInputElement("//*[@name='plain_password']");
+        }
+
+        public static void EnterStrongPassword(string strongPassword)
+        {
+            Common.SendKeysToElement("//*[@name='plain_password']", strongPassword);
+        }
+
+        public static string GetSecondValue()
+        {
+            return Common.GetElementText("//*[contains(text(),'strong')]");
         }
     }
 }

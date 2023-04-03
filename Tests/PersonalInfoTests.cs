@@ -37,6 +37,29 @@ namespace Tests
             Assert.AreEqual(expectedPhone, actualPhone);
         }
 
+        [Test] 
+
+        public void ChangePasswordToWeakAndThenToStrong()
+        {
+            string weakPassword = "abcde";
+            string expectedMessage = "weak";
+
+            PersonalInfo.EnterWeakPassword(weakPassword);
+            string actualMessage = PersonalInfo.GetValue();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+
+            string strongPassword = "pakalne123456";
+            string expectedText = "strong";
+
+            PersonalInfo.ClearPassword();
+            PersonalInfo.EnterStrongPassword(strongPassword);
+            string actualText = PersonalInfo.GetSecondValue();
+
+            Assert.AreEqual(expectedText, actualText);
+
+        }
+
         [TearDown]
         public void TearDown()
         {
