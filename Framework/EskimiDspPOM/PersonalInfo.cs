@@ -66,7 +66,7 @@ namespace Framework.EskimiDspPOM
             Common.SendKeysToElement("//*[@name='plain_password']", weakPassword);
         }
 
-        public static string GetValue()
+        public static string GetMessageText()
         {
             return Common.GetElementText("//*[contains(text(),'weak')]");
         }
@@ -81,7 +81,7 @@ namespace Framework.EskimiDspPOM
             Common.SendKeysToElement("//*[@name='plain_password']", strongPassword);
         }
 
-        public static string GetSecondValue()
+        public static string GetSecondMessageText()
         {
             return Common.GetElementText("//*[contains(text(),'strong')]");
         }

@@ -45,7 +45,7 @@ namespace Tests
             string expectedMessage = "weak";
 
             PersonalInfo.EnterWeakPassword(weakPassword);
-            string actualMessage = PersonalInfo.GetValue();
+            string actualMessage = PersonalInfo.GetMessageText();
 
             Assert.AreEqual(expectedMessage, actualMessage);
 
@@ -54,7 +54,7 @@ namespace Tests
 
             PersonalInfo.ClearPassword();
             PersonalInfo.EnterStrongPassword(strongPassword);
-            string actualText = PersonalInfo.GetSecondValue();
+            string actualText = PersonalInfo.GetSecondMessageText();
 
             Assert.AreEqual(expectedText, actualText);
 
