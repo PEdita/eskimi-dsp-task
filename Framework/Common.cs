@@ -1,7 +1,11 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V109.Page;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
+using System.Xml.Linq;
 
 namespace Framework
 {
@@ -41,6 +45,21 @@ namespace Framework
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.UrlContains(locator));
+        }
+
+        internal static void WaitForElementToBeVisible(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(locator)));
+        }
+
+        internal static void ScrollDownToButton(string locator)
+        {
+            IWebElement element = GetElement(locator);
+            Actions actions = new Actions(Driver.GetDriver());
+
+            actions.MoveToElement(element);
+            actions.Perform();
         }
     }
 }
