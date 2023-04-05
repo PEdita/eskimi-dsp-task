@@ -37,8 +37,25 @@ namespace Tests
             Assert.AreEqual(expectedPhone, actualPhone);
         }
 
-        [Test] 
+        [Test]
+        public void FillInBillingInfo()
+        {
+            string expectedCompanyTitle = "UAB Pasaulis";
+            string expectedCompanyAddress = "Gedimino pr. 99";
 
+            PersonalInfo.ClearCompanyTitleInputBox();
+            PersonalInfo.EnterCompanyTitle(expectedCompanyTitle);
+            string actualCompanyTitle = PersonalInfo.GetCompanyTitle();
+
+            PersonalInfo.ClearCompanyAddressInputBox();
+            PersonalInfo.EnterCompanyAddress(expectedCompanyAddress);
+            string actualCompanyAddress = PersonalInfo.GetCompanyAddress();
+
+            Assert.AreEqual(expectedCompanyTitle, actualCompanyTitle);
+            Assert.AreEqual(expectedCompanyAddress, actualCompanyAddress);
+        }
+
+        [Test] 
         public void ChangePasswordToWeakAndThenToStrong()
         {
             string weakPassword = "abcde";
@@ -57,7 +74,6 @@ namespace Tests
             string actualText = PersonalInfo.GetSecondMessageText();
 
             Assert.AreEqual(expectedText, actualText);
-
         }
 
         [TearDown]
