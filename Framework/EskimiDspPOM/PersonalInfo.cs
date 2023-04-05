@@ -85,5 +85,35 @@ namespace Framework.EskimiDspPOM
         {
             return Common.GetElementText("//*[contains(text(),'strong')]");
         }
+
+        public static void ClearCompanyTitleInputBox()
+        {
+            Common.ClearInputElement("//*[@name='company[title]']");
+        }
+
+        public static void EnterCompanyTitle(string expectedCompanyTitle)
+        {
+            Common.SendKeysToElement("//*[@name='company[title]']", expectedCompanyTitle);
+        }
+
+        public static string GetCompanyTitle()
+        {
+            return Common.GetElementText("//*[@name='company[title]']");
+        }
+
+        public static void ClearCompanyAddressInputBox()
+        {
+            Common.ClearInputElement("//*[@name='company[address]']");
+        }
+
+        public static void EnterCompanyAddress(string expectedCompanyAddress)
+        {
+            Common.SendKeysToElement("//*[@name='company[address]']", expectedCompanyAddress);
+        }
+
+        public static string GetCompanyAddress()
+        {
+            return Common.GetElementText("//*[@name='company[address]']");
+        }
     }
 }
